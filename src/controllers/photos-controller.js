@@ -20,7 +20,6 @@ exports.getPhotos = async (req, res, next) => {
 exports.addPhotos = async (req, res, next) => {
   try {
     if (req.files) {
-      console.log(req.files);
       const photos = [];
       req.files.map((photo) => {
         photos.push({
@@ -39,7 +38,6 @@ exports.addPhotos = async (req, res, next) => {
 
       const push = [];
 
-      console.log(data);
       data.map((image) => {
         push.push(image._id);
       });
@@ -52,6 +50,8 @@ exports.addPhotos = async (req, res, next) => {
         success: true,
         message: "Photos has been successfully saved",
       });
+    } else {
+      throw new Error("No photo's has been detected");
     }
   } catch (err) {
     handleError(err, res);
