@@ -22,7 +22,6 @@ exports.addProducts = async (req, res, next) => {
       isAvailable: req.query.isAvailable,
       newItem: req.query.newItem,
       discount: req.query.discount,
-      // images: req.query.image_id,
     });
 
     const newProduct = await product.save();

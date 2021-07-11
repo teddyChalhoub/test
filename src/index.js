@@ -14,10 +14,6 @@ app.use(express.static('public'));
 app.use("/photos", photos);
 app.use("/products", products);
 
-// app.get("/", (req, res) => { 
-//   res.send("welcome");
-// });
-
 const database = async () => {
   await DBConnection();
   app.listen(port, () =>
